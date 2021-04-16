@@ -1,0 +1,9 @@
+curl -d '{"name":"fantasy"}' -H 'Content-Type: application/json' localhost:3003/api/genres
+curl -d '{"name":"non-fiction"}' -H 'Content-Type: application/json' localhost:3003/api/genres
+curl -X GET localhost:3003/api/genres
+curl -X PUT -d '{"name":"cowboys"}' -H 'Content-Type: application/json' localhost:3003/api/genres/607927c4a0f6cd8de4923725
+curl -X GET localhost:3003/api/genres
+curl -X DELETE localhost:3003/api/genres/6079278aa0f6cd8de4923723
+curl -X GET localhost:3003/api/genres
+curl -d '{"name":"self-help"}' -H 'Content-Type: application/json' localhost:3003/api/genres
+curl -X GET localhost:3003/api/genres
