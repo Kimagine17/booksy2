@@ -96,6 +96,37 @@ const validUser = async (req, res, next) => {
     next();
   };
   
+// middleware function to check for logged-in admin users
+const validAdmin = async (req, res, next) => {
+  if (!req.session.userID)
+    return res.status(403).send({
+      message: "not logged in"
+    });
+  try {
+    const user = await User.findOne({
+      _id: req.session.userID
+    });
+    if (!user) {
+      return res.status(403).send({
+        message: "not logged in"
+      });
+    } else if (!(user.role === "admin")) {
+      return res.staus(403).send({
+        message: "not authorized admin"
+      });
+    }
+    // set the user field in the request
+    req.user = user;
+  } catch (error) {
+    // Return an error if user does not exist.
+    return res.status(403).send({
+      message: "not logged in"
+    });
+  }
+  // if everything succeeds, move to the next middleware
+  next();
+};
+
   // create a new user
 router.post('/', async (req, res) => {
     // Make sure that the form coming from the browser includes a username and a
@@ -123,7 +154,8 @@ router.post('/', async (req, res) => {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        role: req.body.role
       });
       await user.save();
       //set user session info
@@ -200,5 +232,6 @@ router.delete("/", validUser, async (req, res) => {
 module.exports = {
     routes: router,
     model: User,
-    valid: validUser
+    valid: validUser,
+    validAdmin: validAdmin
 };
