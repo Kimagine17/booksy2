@@ -155,7 +155,7 @@ router.post('/', async (req, res) => {
         lastName: req.body.lastName,
         username: req.body.username,
         password: req.body.password,
-        role: req.body.role
+        // role: req.body.role
       });
       await user.save();
       //set user session info

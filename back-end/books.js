@@ -126,7 +126,7 @@ router.delete('/:bookID', validAdmin, async(req, res) => {
     } catch (error) {
         console.log(error);
         res.sendStatus(500);
-    }
+    } 
 });
 
 module.exports = {

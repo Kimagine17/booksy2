@@ -34,8 +34,8 @@ const users = require("./users.js");
 app.use("/api/users", users.routes);
 
 // // import the books module and setup its API path
-// const books = require("./books.js");
-// app.use("/api/books", books.routes);
+const books = require("./books.js");
+app.use("/api/books", books.routes);
 
 // import the genres module and setup its API path
 const genres = require("./genres.js");

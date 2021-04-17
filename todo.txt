@@ -1,0 +1,12 @@
+BACK END:
+Testing some user functions - login and logout 
+Differentiate the error messages for validUser and validAdmin
+Test Books.js
+Reviews.js
+
+FRONT END:
+Register/Login User
+Home page - display all books
+Admin page
+Normal user views
+hey

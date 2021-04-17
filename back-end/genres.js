@@ -13,6 +13,10 @@ const upload = multer({
   }
 });
 
+const users = require("./users.js");
+const User = users.model;
+const validAdmin = users.validAdmin;
+
 //GENRE: Schema, Model, POST, GET, UPDATE, DELETE
 const genreSchema = new mongoose.Schema({
     name: String
@@ -22,7 +26,7 @@ const genreSchema = new mongoose.Schema({
 const Genre = mongoose.model('Genre', genreSchema);
 
 //create a genre
-router.post('/', async(req, res) => {
+router.post('/', validAdmin, async(req, res) => {
     const genre = new Genre ({
         name: req.body.name,
     });
@@ -47,7 +51,7 @@ router.get('/', async(req, res) => {
 });
 
 //update a genre
-router.put('/:genreID', async(req, res) => {
+router.put('/:genreID', validAdmin, async(req, res) => {
     try {
         let genre = await Genre.findOne({_id: req.params.genreID});
         if(!genre) {
@@ -64,7 +68,7 @@ router.put('/:genreID', async(req, res) => {
 });
 
 //delete a genre
-router.delete('/:genreID', async(req, res) => {
+router.delete('/:genreID', validAdmin, async(req, res) => {
     try {
         let genre = await Genre.findOne({_id: req.params.genreID});
         if(!genre) {

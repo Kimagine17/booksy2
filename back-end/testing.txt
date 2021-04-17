@@ -1,3 +1,4 @@
+Genre Testing:
 curl -d '{"name":"fantasy"}' -H 'Content-Type: application/json' localhost:3003/api/genres
 curl -d '{"name":"non-fiction"}' -H 'Content-Type: application/json' localhost:3003/api/genres
 curl -X GET localhost:3003/api/genres
@@ -7,3 +8,14 @@ curl -X DELETE localhost:3003/api/genres/6079278aa0f6cd8de4923723
 curl -X GET localhost:3003/api/genres
 curl -d '{"name":"self-help"}' -H 'Content-Type: application/json' localhost:3003/api/genres
 curl -X GET localhost:3003/api/genres
+
+User Testing: 
+//creating admin and regular user
+curl -d '{"firstName":"Hannah", "lastName":"Nelson", "username":"hannahnels", "password":"password"}' -H 'Content-Type: application/json' localhost:3003/api/users
+curl -d '{"firstName":"Kimberly", "lastName":"McKinnon", "username":"kimberlymck", "password":"password"}' -H 'Content-Type: application/json' localhost:3003/api/users
+//log Kimberly in
+curl -d '{"username":"kimberlymck", "password":"password"}' -H 'Content-Type: application/json' localhost:3003/api/users/login
+//log Kim out
+curl -X DELETE localhost:3003/users/
+Book Testing: 
+curl 
