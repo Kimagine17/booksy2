@@ -1,6 +1,6 @@
 BACK END:
 Testing some user functions - login and logout 
-Differentiate the error messages for validUser and validAdmin
+//Differentiate the error messages for validUser and validAdmin
 Test Books.js
 Reviews.js
 

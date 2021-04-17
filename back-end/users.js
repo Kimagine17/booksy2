@@ -85,6 +85,7 @@ const validUser = async (req, res, next) => {
         });
       }
       // set the user field in the request
+      console.log("Valid User!");
       req.user = user;
     } catch (error) {
       // Return an error if user does not exist.
@@ -100,7 +101,7 @@ const validUser = async (req, res, next) => {
 const validAdmin = async (req, res, next) => {
   if (!req.session.userID)
     return res.status(403).send({
-      message: "not logged in"
+      message: "admin not logged in 1 "
     });
   try {
     const user = await User.findOne({
@@ -108,19 +109,20 @@ const validAdmin = async (req, res, next) => {
     });
     if (!user) {
       return res.status(403).send({
-        message: "not logged in"
+        message: "admin not logged in 2"
       });
     } else if (!(user.role === "admin")) {
       return res.staus(403).send({
-        message: "not authorized admin"
+        message: "admin not authorized admin"
       });
     }
     // set the user field in the request
+    console.log("Valid Admin!");
     req.user = user;
   } catch (error) {
     // Return an error if user does not exist.
     return res.status(403).send({
-      message: "not logged in"
+      message: "admin not logged in 3"
     });
   }
   // if everything succeeds, move to the next middleware
@@ -196,6 +198,7 @@ router.post('/login', async (req, res) => {
         });
         // set user session info
         req.session.userID = user._id;
+        console.log("Logged in!");
         return res.send({
         user: user
         });

@@ -17,7 +17,8 @@ const users = require("./users.js");
 const genres = require("./genres.js");
 const User = users.model;
 const validAdmin = users.validAdmin;
-const Genre = users.model;
+const validUser = users.valid;
+const Genre = genres.model;
 
 //BOOK: Schema, Model, POST, GET for genre, UPDATE
 const bookSchema = new mongoose.Schema({
@@ -46,8 +47,9 @@ router.post('/photos', validAdmin, upload.single('photo'), async (req, res) => {
   });
 
 //Create a Book w/ Genre
-router.post('/:genreID', validAdmin, async(req, res) => {
-    try {
+// router.post('/:genreID', validAdmin, async(req, res) => {
+router.post('/:genreID', async(req, res) => {
+        try {
         let genre = await Genre.findOne({_id: req.params.genreID});
         if (!genre) {
             res.sendStatus(404);
@@ -95,8 +97,9 @@ router.get('/:genreID', async(req, res) => {
 });
 
 //Update a book
-router.put('/:bookID', validAdmin, async(req, res) => {
-    try {
+// router.put('/:bookID', validAdmin, async(req, res) => {
+router.put('/:bookID', async(req, res) => {
+        try {
         let book = await Book.findOne({_id: req.params.bookID});
         if(!book) {
             res.sendStatus(404);
@@ -114,8 +117,9 @@ router.put('/:bookID', validAdmin, async(req, res) => {
 });
 
 //Delete a book
-router.delete('/:bookID', validAdmin, async(req, res) => {
-    try {
+router.delete('/:bookID', async(req, res) => {
+// router.delete('/:bookID', validAdmin, async(req, res) => {
+        try {
         let book = await Book.findOne({_id: req.params.bookID});
         if(!book) {
             res.sendStatus(404);
