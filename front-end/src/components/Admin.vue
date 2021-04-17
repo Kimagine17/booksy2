@@ -131,7 +131,6 @@ export default {
     }
   },
   created() {
-    // this.getItems();
     this.getGenres();
     this.getBooks();
   },
@@ -241,45 +240,6 @@ export default {
     },
   }
 }
-
-//     async getItems() {
-//       try {
-//         let response = await axios.get("/api/books");
-//         this.items = response.data;
-//         return true;
-//       } catch (error) {
-//         //console.log(error);
-//       }
-//     },
-//     selectItem(item) {
-//       this.findTitle = "";
-//       this.findItem = item;
-//     },
-//     async deleteItem(item) {
-//       try {
-//         await axios.delete("/api/books/" + item._id);
-//         this.findItem = null;
-//         this.getItems();
-//         return true;
-//       } catch (error) {
-//         //console.log(error);
-//       }
-//     },
-//     async editItem(item) {
-//       try {
-//         await axios.put("/api/books/" + item._id, {
-//           title: this.findItem.title,
-//           description: this.findItem.description,
-//         });
-//         this.findItem = null;
-//         this.getItems();
-//         return true;
-//       } catch (error) {
-//         //console.log(error);
-//       }
-//     },
-//   },
-// }
 </script>
 
 <style scoped>
