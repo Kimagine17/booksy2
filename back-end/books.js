@@ -47,8 +47,7 @@ router.post('/photos', validAdmin, upload.single('photo'), async (req, res) => {
   });
 
 //Create a Book w/ Genre
-// router.post('/:genreID', validAdmin, async(req, res) => {
-router.post('/:genreID', async(req, res) => {
+router.post('/:genreID', validAdmin, async(req, res) => {
         try {
         let genre = await Genre.findOne({_id: req.params.genreID});
         if (!genre) {
@@ -97,8 +96,7 @@ router.get('/:genreID', async(req, res) => {
 });
 
 //Update a book
-// router.put('/:bookID', validAdmin, async(req, res) => {
-router.put('/:bookID', async(req, res) => {
+router.put('/:bookID', validAdmin, async(req, res) => {
         try {
         let book = await Book.findOne({_id: req.params.bookID});
         if(!book) {
@@ -117,8 +115,7 @@ router.put('/:bookID', async(req, res) => {
 });
 
 //Delete a book
-router.delete('/:bookID', async(req, res) => {
-// router.delete('/:bookID', validAdmin, async(req, res) => {
+router.delete('/:bookID', validAdmin, async(req, res) => {
         try {
         let book = await Book.findOne({_id: req.params.bookID});
         if(!book) {

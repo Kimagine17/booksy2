@@ -31,15 +31,13 @@ const reviewSchema = new mongoose.Schema({
         ref: 'User'
     },
     review: String,
-    //TO-DO: photo: String,
 });
 
 //review model
 const Review = mongoose.model('Review', reviewSchema);
 
-// router.post('/:bookID/', validUser, async(req, res) => {
-router.post('/:bookID/', async(req, res) => {
-        try {
+router.post('/:bookID/', validUser, async(req, res) => {
+    try {
         let book = await Book.findOne({_id: req.params.bookID});
         if(!book) {
             res.sendStatus(404);
@@ -101,19 +99,18 @@ router.get('/', validUser, async(req, res) => {
 });
 
 //Update a review
-router.put('/:reviewID', async(req, res) => {
-// router.put('/:reviewID', validUser, async(req, res) => {
+router.put('/:reviewID', validUser, async(req, res) => {
         try {
         let review = await Review.findOne({_id:req.params.reviewID});
         if(!review) {
             res.sendStatus(404);
             return;
         }
-        // if(!(review.user.username === req.user.username))
-        // {
-        //     res.status(403).send({message:"Comment does not belong to this user"});
-        //     return;
-        // }
+        if(!(review.user.username === req.user.username))
+        {
+            res.status(403).send({message:"Comment does not belong to this user"});
+            return;
+        }
         review.review = req.body.review;
         await review.save();
         res.send(review);
@@ -125,11 +122,16 @@ router.put('/:reviewID', async(req, res) => {
 
 //Delete a review
 // router.delete('/api/reviews/:reviewID', validUser, async(req, res) => {
-router.delete('/:reviewID', async(req, res) => {
+router.delete('/:reviewID', validUser, async(req, res) => {
     try {
         let review = await Review.findOne({_id:req.params.reviewID});
         if(!review) {
             res.sendStatus(404);
+            return;
+        }
+        if(!(review.user.username === req.user.username))
+        {
+            res.status(403).send({message:"Comment does not belong to this user"});
             return;
         }
         await review.delete();
