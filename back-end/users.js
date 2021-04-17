@@ -85,7 +85,6 @@ const validUser = async (req, res, next) => {
         });
       }
       // set the user field in the request
-      console.log("Valid User!");
       req.user = user;
     } catch (error) {
       // Return an error if user does not exist.
@@ -117,7 +116,6 @@ const validAdmin = async (req, res, next) => {
       });
     }
     // set the user field in the request
-    console.log("Valid Admin!");
     req.user = user;
   } catch (error) {
     // Return an error if user does not exist.

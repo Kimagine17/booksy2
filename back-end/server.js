@@ -17,6 +17,15 @@ mongoose.connect('mongodb://localhost:27017/booksy2', {
   useNewUrlParser: true
 });
 
+// Configure multer so that it will upload to '../front-end/public/images'
+const multer = require('multer')
+const upload = multer({
+  dest: '../front-end/public/images/',
+  limits: {
+    fileSize: 10000000
+  }
+});
+
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
 
@@ -45,6 +54,18 @@ app.use("/api/genres", genres.routes);
 const reviews = require("./reviews.js");
 app.use("/api/reviews", reviews.routes);
 
+
+// Upload a photo. Uses the multer middleware for the upload and then returns
+// the path where the photo is stored in the file system.
+app.post('/api/photos', upload.single('photo'), async (req, res) => {
+  // Just a safety check
+  if (!req.file) {
+    return res.sendStatus(400);
+  }
+  res.send({
+    photoPath: "/images/" + req.file.filename
+  });
+});
 
 
 // listen on port 3003
