@@ -18,7 +18,7 @@ const routes = [
     component: Book
   },
   {
-    path: '/user/:id',
+    path: '/UserPage',
     name: UserPage,
     component: UserPage
   }

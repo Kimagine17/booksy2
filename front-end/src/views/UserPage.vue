@@ -15,7 +15,6 @@ export default {
 
 
 <style scoped>
-
 .userpage {
     color: black;
 }
