@@ -134,6 +134,7 @@ router.post('/', async (req, res) => {
     // Make sure that the form coming from the browser includes a username and a
     // passsword, otherwise return an error. A 400 error means the request was
     // malformed.
+    console.log("Creating a new user");
     if (!req.body.username || !req.body.password)
       return res.status(400).send({
         message: "username and password are required"
@@ -174,6 +175,8 @@ router.post('/', async (req, res) => {
   
 // login a user
 router.post('/login', async (req, res) => {
+  console.log("Logging in a user");
+
     // Make sure that the form coming from the browser includes a username and a
     // password, otherwise return an error.
     if (!req.body.username || !req.body.password)
