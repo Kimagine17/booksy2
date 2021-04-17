@@ -1,8 +1,8 @@
 BACK END:
-Testing some user functions - login and logout 
-Differentiate the error messages for validUser and validAdmin
-Test Books.js
-Reviews.js
+Testing some user functions - login and logout - wait until back end
+Differentiate the error messages for validUser and validAdmin -DONE
+Test Books.js - all book functions work 
+Reviews.js 
 
 FRONT END:
 Register/Login User
