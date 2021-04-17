@@ -217,11 +217,12 @@ export default {
       }
     },
     fileChanged(event) {
-        console.log("we are here");
+      console.log("we are here");
       this.file = event.target.files[0]
       console.log("we are leaving");
     },
     async uploadbook(genre) {
+      console.log("in uploadbook");
       console.log(genre);
       try {
         const formData = new FormData();
