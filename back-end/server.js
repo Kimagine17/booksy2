@@ -41,11 +41,11 @@ app.use("/api/books", books.routes);
 const genres = require("./genres.js");
 app.use("/api/genres", genres.routes);
 
-// // import the reviews module and setup its API path
-// const reviews = require("./reviews.js");
-// app.use("/api/reviews", reviews.routes);
+// import the reviews module and setup its API path
+const reviews = require("./reviews.js");
+app.use("/api/reviews", reviews.routes);
 
 
 
-// listen on port 3000
+// listen on port 3003
 app.listen(3003, () => console.log('Server listening on port 3003!'));

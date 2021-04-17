@@ -24,3 +24,11 @@ curl -X GET localhost:3003/api/books
 curl -X GET localhost:3003/api/books/607927c4a0f6cd8de4923725
 curl -X PUT -d '{"name":"Get $ome Gritzzz", "description":"Get gritty!"}' -H 'Content-Type: application/json' localhost:3003/api/books/607a346e969390a634ecca95
 curl -X DELETE localhost:3003/api/books/607a346e969390a634ecca95
+
+
+//Review Testing
+curl -X POST -d '{"review":"Super good person. Definitely going to Heaven."}' -H 'Content-Type: application/json' localhost:3003/api/reviews/607a36846c8169a72ae34c9d
+curl -X GET localhost:3003/api/reviews
+curl -X GET localhost:3003/api/reviews/607a36846c8169a72ae34c9d
+curl -X PUT -d '{"review":"Repented, said she was sorry. All is forgiven and forgotten."}' -H 'Content-Type: application/json' localhost:3003/api/reviews/607a3cb1dee106a9c17201c6
+curl -X DELETE localhost:3003/api/reviews/607a3cb1dee106a9c17201c6
