@@ -1,28 +1,53 @@
 <template>
-    <div class = "main-container">
-        <div class = "book-container">
-            <div class="book" v-if="book">
-                <img :src="book.photoPath" width=20%;/>
-            <!-- <h2> Photo Details: {{photo}} </h2> -->
-            <h2> Title: {{book.name}} </h2>
-            <h2> Description: {{book.description}} </h2>
-            <h2> Author: {{book.author}}</h2>
-            <div class="reviewing" v-if="user">
-              <form class="form" @submit.prevent="submitReview">
-                  <input placeholder="add review" v-model="review">
-                  <button class="pure-button pure-button-primary">Submit</button>
-              </form>
-            </div> 
-            <div class="all-reviews"> 
-              <h3> Comments: </h3>
-              <div class = "review-loop" v-for="review in reviews" v-bind:key="review._id">
-                <p>{{review.review}}</p>
-                <p>{{review.user.username}}, {{formatDate(review.created)}}</p>
-              </div>
-            </div>
-            </div>
-        </div>    
+<div class = "book-vue">
+  <h1> Reviews Page</h1>
+  <div class = "main-container">
+    <div class="content1">
+      <div class="book" v-if="book">
+        <div class="info1">
+          <div class="info-item1">
+            <h2>{{book.name}}</h2>
+          </div>
+          <div class="info-item1">
+            <p>By: {{book.author}}</p>
+          </div>
+        </div>
+        <div class="cover">
+          <img :src="book.photoPath" width=100%/>
+        </div>
+        <div class="info2">
+          <div class="info-item2"> 
+            <p><em>Genre: </em>{{book.genre.name}}</p>
+          </div>
+          <div class="info-item2">
+            <p>Description: {{book.description}}</p>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="content">
+      <div class="all-reviews">
+        <div class="review-header">
+          <h2>Reviews</h2>
+        </div>
+        <div class="add-reviews" v-if="user">
+          <form class="form" @submit.prevent="submitReview">
+            <h4>Add your own review:</h4>
+              <input placeholder="add review" v-model="review">
+              <button class="pure-button pure-button-primary">Submit</button>
+          </form>
+        </div> 
+        <div class="display-reviews"> 
+          <h3> Reviews: </h3>
+          <div class = "review-loop" v-for="review in reviews" v-bind:key="review._id">
+            <p>{{review.review}}</p>
+            <p>—{{review.user.username}}, {{formatDate(review.created)}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </template>
 
 <script>
@@ -96,23 +121,100 @@ export default {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 } 
-
+.book-vue {
+  margin: 20px;
+  padding: 2%;
+}
 .main-container {
     height: 100%;
     width: 100%;
     border: 1px solid white;
+    align-content: center;
+}
+.content1 {
+  margin: 20px;
+  display: inline-block;
+  width: 90%;
+  padding: 2%;
+}
+.content {
+  margin: 20px;
+  display: inline-block;
+  width: 90%;
+  padding: 2%;
+}
+.book {
+  background-color: antiquewhite;
+  border: 4px solid #a13b0c;
+}
+.all-reviews {
+  background-color:#cfe2fd;
+  border: 4px solid #062d62;
+}
+.cover {
+  width: 70%;
+  margin: 15px auto;
 }
 
-.photo-container {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 100px;
-    /* border: 4px solid blue; */
+.info1 {
+  padding-bottom: 6%;
+  border: dashed 2px #a13b0c;
+  margin: 15px 15px;
+  padding: 15px 0px;
+}
+.review-header {
+  padding: 15px auto;
+  border: dashed 2px #062d62;
+  margin: 15px 15px;
+  line-height: 1.25em;
+}
+.review-header h2 {
+  padding: 15px;
+}
+.info-item1 {
+  text-align: center;
 }
 
-.photo {
-    justify-content: center;
-    text-align: center;
+.info2 {
+  padding-top: 6%;
+  margin: 15px 15px;
+  padding-bottom: 6%;
+
+}
+.info-item {
+  line-height: 1.25em;
+  padding-top: 1.5%;
+  padding-bottom: 1%;
 }
 
+.add-reviews {
+  margin: 10px;
+  padding: 5%;
+}
+.display-reviews{
+  border: solid black 2px;
+  padding: 5%;  
+}
+.review-loop {
+  margin: 3%;
+  padding: 2%;
+}
+@media only screen and (min-width: 600px) {
+  .main-container {
+    height: 100%;
+    width: 100%;
+    border: 1px solid white;
+    display: flex;
+    align-content: center;
+  } 
+  .content{
+    width: 48%;
+  }
+  .content1{
+    width: 48%;
+      max-width: 400px;
+
+  }
+
+}
 </style>

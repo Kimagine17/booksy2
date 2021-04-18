@@ -73,7 +73,7 @@ router.post('/:genreID', validAdmin, async(req, res) => {
 //Get all the books in the database
 router.get('/', async(req, res) => {
     try {
-        let books = await Book.find();
+        let books = await Book.find().populate('genre');
         res.send(books);
     } catch (error) {
         console.log(error);
@@ -89,7 +89,7 @@ router.get('/genre/:genreID', async(req, res) => {
             res.sendStatus(404);
             return;
         }
-        let books = await Book.find({genre:genre});
+        let books = await Book.find({genre:genre}).populate('genre');
         res.send(books);
     } catch (error) {
         console.log(error);
@@ -102,7 +102,7 @@ router.get('/book/:bookID', async(req, res) => {
     try {
         let book = await Book.findOne({
             _id: req.params.bookID
-        }).populate('user');
+        }).populate('user').populate('genre');
         if (!book) {
             res.sendStatus(404);
             return;
