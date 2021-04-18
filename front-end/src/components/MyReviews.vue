@@ -1,34 +1,38 @@
 <template>
     <div class = "main">
         <div class = "account-header">
-            <div class = "welcome-announcement">
-                <p>Welcome {{user.firstName}}!</p>
-            </div>
-            <div class = "welcome-announcement">
-                <button class="logout" @click="logout">Logout</button>
+            <div class="header-elements">
+                <div class ="welcome-announcement">
+                    <p>Welcome {{user.firstName}}!</p>
+                </div>
+                <div class = "welcome-announcement">
+                    <button class="logout" @click="logout">Logout</button>
+                </div>
             </div>
         </div>
-        <div class = "my-reviews">
-            <h3> My Reviews: </h3>
-              <div class = "review-loop" v-for="review in reviews" v-bind:key="review._id">
-                <p>Review: {{review.review}}</p>
-                <p>Book: {{review.book.name}}</p>
-                <button class="edit" @click="openEdit(review)">Edit Review</button>
-              </div>
-              <div class="openEditForms" v-if="edit">
-                  <div class="button">
-                    <form class="form" @submit.prevent="editReview">
-                    <input placeholder="edit review" v-model="reviewToEdit.review">
-                    <button class="pure-button pure-button-primary">Submit</button>
-                    </form>
-                  </div>
-                  <div class="button">
-                    <button class="pure-button pure-button-primary" @click="deleteReview">Delete</button>
-                  </div>
-                  <div class="button">
-                    <button class="pure-button pure-button-primary" @click="closeEdit">Close</button>
-                  </div>
-              </div>
+        <div class="review-container">
+            <h1> My Reviews: </h1>
+            <div class = "my-reviews">
+                <div class = "review-loop" v-for="review in reviews" v-bind:key="review._id">
+                    <p>Review: {{review.review}}</p>
+                    <p>Book: {{review.book.name}}</p>
+                    <button class="edit" @click="openEdit(review)">Edit Review</button>
+                </div>
+                <div class="openEditForms" v-if="edit">
+                    <div class="button">
+                        <form class="form" @submit.prevent="editReview">
+                        <input placeholder="edit review" v-model="reviewToEdit.review">
+                        <button class="pure-button pure-button-primary">Submit</button>
+                        </form>
+                    </div>
+                    <div class="button">
+                        <button class="pure-button pure-button-primary" @click="deleteReview">Delete</button>
+                    </div>
+                    <div class="button">
+                        <button class="pure-button pure-button-primary" @click="closeEdit">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -109,3 +113,57 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.main {
+    width: 100%;
+}
+
+.account-header {
+    display: flex;
+    justify-content: right;
+    text-align: right;
+    background-color:#cfe2fd;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.header-elements {
+    width: 25%;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.welcome-announcement {
+    padding: 1% 2% 1% 4%;
+    color: #062d62;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.logout {
+    padding: 6%;
+    background-color: #062d62;
+    color: antiquewhite;
+    margin: auto;
+}
+
+.review-container {
+    width: 90%;
+    margin: 5% auto auto auto;
+}
+
+.my-reviews {
+  background-color:#cfe2fd;
+  /* border: 2px solid #062d62; */
+  padding: 15px;
+  margin: 5%;
+  display: flex;
+}
+
+.review-loop {
+    display: block;
+}
+
+</style>

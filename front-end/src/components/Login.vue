@@ -1,33 +1,37 @@
 <template>
 <div class="hero">
   <div class="heroBox">
-    <form class="pure-form space-above">
-      <fieldset>
-        <legend>Login</legend>
-        <input placeholder="username" v-model="usernameLogin">
-        <input type="password" placeholder="password" v-model="passwordLogin">
-      </fieldset>
-      <fieldset>
-        <button type="submit" class="pure-button pure-button-primary" @click.prevent="login">Login</button>
-      </fieldset>
-    </form>
-    <p v-if="errorLogin" class="error">{{errorLogin}}</p>
-    <form class="pure-form">
-      <fieldset>
-        <legend>Register for an account</legend>
-        <input placeholder="first name" v-model="firstName">
-        <input placeholder="last name" v-model="lastName">
-      </fieldset>
-      <fieldset>
-        <input placeholder="username" v-model="username">
-        <input type="password" placeholder="password" v-model="password">
-      </fieldset>
-      <fieldset>
-        <button type="submit" class="pure-button pure-button-primary" @click.prevent="register">Register</button>
-      </fieldset>
-    </form>
-    <p v-if="error" class="error">{{error}}</p>
-  </div>
+    <div class = "login">
+      <form class="pure-form">
+        <div class="login-credentials">
+          <h2>Login</h2>
+          <input placeholder="username" v-model="usernameLogin">
+          <input type="password" placeholder="password" v-model="passwordLogin">
+        </div>
+        <div class="login-credentials">
+          <button type="submit" class="pure-button pure-button-primary" @click.prevent="login">Login</button>
+        </div>
+      </form>
+      <p v-if="errorLogin" class="error">{{errorLogin}}</p>
+    </div>
+    <div class = "register">
+      <form class="pure-form">
+        <div class="register-credentials">
+          <h2>Register for an account</h2>
+          <input placeholder="first name" v-model="firstName">
+          <input placeholder="last name" v-model="lastName">
+        </div>
+        <div class="register-credentials">
+          <input placeholder="username" v-model="username">
+          <input type="password" placeholder="password" v-model="password">
+          <div>
+            <button type="submit" class="pure-button pure-button-primary" @click.prevent="register">Register</button>
+          </div>
+        </div>
+      </form>
+      <p v-if="error" class="error">{{error}}</p>
+    </div>
+  </div>  
 </div>
 </template>
 
@@ -87,10 +91,6 @@ export default {
 </script>
 
 <style scoped>
-.space-above {
-  margin-top: 50px;
-}
-
 h1 {
   font-size: 28px;
   font-variant: capitalize;
@@ -104,6 +104,9 @@ h1 {
 
 .heroBox {
   text-align: center;
+  /* margin-top: auto;
+  margin-bottom: auto; */
+  /* border: 4px solid black; */
 }
 
 .hero form {
@@ -119,7 +122,7 @@ input {
 }
 
 .error {
-  margin-top: 10px;
+  margin-top: 3%;
   display: inline;
   padding: 5px 20px;
   border-radius: 30px;
@@ -127,5 +130,18 @@ input {
   background-color: #d9534f;
   color: #fff;
 }
+
+.login, .register {
+  padding: 5%;
+}
+
+.login-credentials, .register-credentials {
+    background-color:#cfe2fd;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+
+
 </style>
 
