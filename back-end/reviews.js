@@ -57,10 +57,10 @@ router.post('/:bookID/', validUser, async(req, res) => {
 });
 
 //Get all the reviews
-router.get('/', async(req, res) => {
+router.get('/all', async(req, res) => {
     try {
         let reviews = await Review.find().populate('user').sort({created: -1});
-        res.send(reviews);
+        res.send(reviews.reverse());
     } catch (error) {
         console.log(error);
         res.sendStatus(500);
@@ -70,13 +70,15 @@ router.get('/', async(req, res) => {
 //Get the reviews for a BOOK
 router.get('/:bookID', async(req, res) => {
     try {
-        let book = await Book.findOne({_id: req.params.bookID}).populate('user').sort({created: -1});
+        let book = await Book.findOne({_id: req.params.bookID});
         if(!book) {
             res.sendStatus(404);
             return;
         }
-        let reviews = await Review.find({book:book});
-        res.send(reviews);
+        let reviews = await Review.find({book:book}).populate('user');
+        // console.log(reviews);
+        // console.log(reviews.reverse());
+        res.send(reviews.reverse());
     } catch (error) {
         console.log(error);
         res.sendStatus(500);
@@ -86,12 +88,12 @@ router.get('/:bookID', async(req, res) => {
 //Get the reviews for a user
 router.get('/', validUser, async(req, res) => {
     try {
-        let reviews = await Review.findOne({
+        let reviews = await Review.find({
             user: req.user
-        }).populate('user').sort({
+        }).populate('book').sort({
             created: -1
         });
-        return res.send(reviews);
+        return res.send(reviews.reverse());
     } catch (error) {
         console.log(error);
         res.sendStatus(500);
