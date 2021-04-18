@@ -9,7 +9,8 @@
           <h3>Description: {{book.description}}</h3>
         </div>
         <div class="bookCover">
-          <img :src="book.photoPath" />
+          <router-link :to="{ name: 'Book', params: { id: book._id }}"><img :src="book.photoPath" /></router-link>
+          <!-- <img :src="book.photoPath" /> -->
         </div>
         <!-- <h2>{{book.genre}}</h2> -->
         <!-- <h2>{{book.genre.name}}</h2> -->

@@ -95,6 +95,23 @@ router.get('/:genreID', async(req, res) => {
     }
 });
 
+//Get a single book
+router.get('/:bookID', async(req, res) => {
+    try {
+        console.log("req.params.bookID: " + req.params.bookID);
+        let book = await Book.findOne({_id: req.params.bookID});
+        console.log("Book: " + book);
+        if (!book) {
+            res.sendStatus(404);
+            return;
+        } 
+        res.send(book);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+})
+
 //Update a book
 router.put('/:bookID', validAdmin, async(req, res) => {
         try {
