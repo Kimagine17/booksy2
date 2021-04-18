@@ -119,6 +119,8 @@ body {
 .header-item {
   color: antiquewhite;
   text-decoration: none;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 :link, :visited {

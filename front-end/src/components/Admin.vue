@@ -1,6 +1,6 @@
 <template>
 <div class = "admin">
-  <h1>Admin Page</h1>
+  <h1>Admin: </h1>
     <!-- Genre -->
     <div class="set">
       <h2>Genres</h2>
@@ -257,7 +257,7 @@ export default {
 }
 .set {
   background-color:#cfe2fd;
-  border: 2px solid #062d62;
+  /* border: 2px solid #062d62; */
   padding: 15px;
   margin: 5%;
 }
