@@ -103,7 +103,7 @@ router.get('/', validUser, async(req, res) => {
 //Update a review
 router.put('/:reviewID', validUser, async(req, res) => {
         try {
-        let review = await Review.findOne({_id:req.params.reviewID});
+        let review = await Review.findOne({_id:req.params.reviewID}).populate('user');
         if(!review) {
             res.sendStatus(404);
             return;

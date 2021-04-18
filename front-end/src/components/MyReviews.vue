@@ -13,6 +13,21 @@
               <div class = "review-loop" v-for="review in reviews" v-bind:key="review._id">
                 <p>Review: {{review.review}}</p>
                 <p>Book: {{review.book.name}}</p>
+                <button class="edit" @click="openEdit(review)">Edit Review</button>
+              </div>
+              <div class="openEditForms" v-if="edit">
+                  <div class="button">
+                    <form class="form" @submit.prevent="editReview">
+                    <input placeholder="edit review" v-model="reviewToEdit.review">
+                    <button class="pure-button pure-button-primary">Submit</button>
+                    </form>
+                  </div>
+                  <div class="button">
+                    <button class="pure-button pure-button-primary">Delete</button>
+                  </div>
+                  <div class="button">
+                    <button class="pure-button pure-button-primary" @click="closeEdit">Close</button>
+                  </div>
               </div>
         </div>
     </div>
@@ -27,6 +42,8 @@ export default {
         return {
             review: "",
             reviews: [],
+            edit: false,
+            reviewToEdit: null,
         }
     },
     async created() {
@@ -61,6 +78,25 @@ export default {
             else
                 return moment(date).format('d MMMM YYYY');
         },
+        openEdit(review) {
+            this.edit = true;
+            this.reviewToEdit = review;
+        },
+        async editReview() {
+            try {
+                await axios.put("/api/reviews/" + this.reviewToEdit._id, {
+                review: this.reviewToEdit.review,
+                });
+                this.getReviews();
+            } catch (error) {
+                this.error = error.response.data.message;
+            }
+            this.review = "";
+        },
+        closeEdit() {
+            this.edit = false;
+            this.reviewToEdit = null;
+        }
     }
 }
 </script>
