@@ -29,6 +29,7 @@ const bookSchema = new mongoose.Schema({
     name: String,
     description: String,
     photoPath: String,
+    author: String,
 });
 
 //book model
@@ -59,6 +60,7 @@ router.post('/:genreID', validAdmin, async(req, res) => {
             name: req.body.name,
             description: req.body.description,
             photoPath: req.body.photoPath,
+            author: req.body.author,
         });
         await book.save();
         res.send(book);
@@ -80,7 +82,7 @@ router.get('/', async(req, res) => {
 });
 
 //Get all the books for a genre 
-router.get('/:genreID', async(req, res) => {
+router.get('/genre/:genreID', async(req, res) => {
     try {
         let genre = await Genre.findOne({_id: req.params.genreID});
         if (!genre) {
@@ -96,11 +98,11 @@ router.get('/:genreID', async(req, res) => {
 });
 
 //Get a single book
-router.get('/:bookID', async(req, res) => {
+router.get('/book/:bookID', async(req, res) => {
     try {
-        console.log("req.params.bookID: " + req.params.bookID);
-        let book = await Book.findOne({_id: req.params.bookID});
-        console.log("Book: " + book);
+        let book = await Book.findOne({
+            _id: req.params.bookID
+        }).populate('user');
         if (!book) {
             res.sendStatus(404);
             return;
@@ -122,6 +124,7 @@ router.put('/:bookID', validAdmin, async(req, res) => {
         }
         book.name = req.body.name;
         book.description = req.body.description;
+        book.author = req.body.author;
         //photoPath = req.body.photoPath;
         await book.save();
         res.send(book);

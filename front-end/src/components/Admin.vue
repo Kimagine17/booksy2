@@ -60,6 +60,8 @@
               <p>Write a short description:</p>
               <input v-model="bookDescription" placeholder="Description">
               <p></p>
+              <p>Author:</p>
+              <input v-model="bookAuthor" placeholder="Author">
               <input type="file" name="photo" @change="fileChanged">
               <button @click="uploadbook(genre)">Upload Book Cover</button>
             </div>
@@ -87,6 +89,8 @@
               <input v-model="findBookItem.description">
               <p></p>
               <img :src="findBookItem.path" />
+              <p></p>
+              <input v-model="findBookItem.author">
             </div>
             <div class="actions" v-if="findBookItem">
               <button @click="deleteBook(findBookItem)">Delete</button>
@@ -122,6 +126,7 @@ export default {
       addBook: null,
       findName: "",
       findItem: null,
+      bookAuthor: "",
     }
   },
   computed: {
@@ -207,6 +212,7 @@ export default {
         await axios.put("/api/books/" + item._id, {
           name: this.findBookItem.name,
           description: this.findBookItem.description,
+          author: this.findBookItem.author,
         });
         this.findBookItem = null;
         this.getItems();
@@ -232,6 +238,7 @@ export default {
           name: this.bookTitle,
           description: this.bookDescription,
           photoPath: r1.data.photoPath,
+          author: this.bookAuthor,
         });
         this.addBook = r2.data;
       } catch (error) {

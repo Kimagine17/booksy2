@@ -59,7 +59,7 @@ router.post('/:bookID/', validUser, async(req, res) => {
 //Get all the reviews
 router.get('/', async(req, res) => {
     try {
-        let reviews = await Review.find();
+        let reviews = await Review.find().populate('user').sort({created: -1});
         res.send(reviews);
     } catch (error) {
         console.log(error);
@@ -70,7 +70,7 @@ router.get('/', async(req, res) => {
 //Get the reviews for a BOOK
 router.get('/:bookID', async(req, res) => {
     try {
-        let book = await Book.findOne({_id: req.params.bookID});
+        let book = await Book.findOne({_id: req.params.bookID}).populate('user').sort({created: -1});
         if(!book) {
             res.sendStatus(404);
             return;

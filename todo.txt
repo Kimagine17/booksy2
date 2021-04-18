@@ -10,3 +10,11 @@ Home page - display all books
 Admin page
 Normal user views
 hey
+
+4/17:
+router links for individual book.vue 
+Add review functionality
+Add user's comments
+CSS styling (yikes)
+
+Extra: Sort by genre

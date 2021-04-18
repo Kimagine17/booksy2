@@ -138,7 +138,6 @@ router.post('/', async (req, res) => {
       });
   
     try {
-  
       //  Check to see if username already exists and if not send a 403 error. A 403
       // error means permission denied.
       const existingUser = await User.findOne({

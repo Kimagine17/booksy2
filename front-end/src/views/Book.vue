@@ -4,9 +4,9 @@
             <div class="book" v-if="book">
                 <img :src="book.photoPath" width=20%;/>
             <!-- <h2> Photo Details: {{photo}} </h2> -->
-            <h2> Title: {{book.title}} </h2>
+            <h2> Title: {{book.name}} </h2>
             <h2> Description: {{book.description}} </h2>
-            <h2> Created by {{book.user.username}} on {{book.created}} </h2>
+            <h2> Author: {{book.author}}</h2>
             <div class="reviewing" v-if="user">
               <form class="form" @submit.prevent="submitReview">
                   <input placeholder="add review" v-model="review">
@@ -54,10 +54,8 @@ export default {
   methods: {
     async getBook() {
       try {
-      console.log("this.$route.params.id: " + this.$route.params.id);
-      let response = await axios.get("/api/books/" + this.$route.params.id);
+      let response = await axios.get("/api/books/book/" + this.$route.params.id);
       this.book = response.data;
-      console.log("this.book: " + this.book);
       } catch (error) {
       this.error = error.response.data.message;
       }
@@ -66,6 +64,8 @@ export default {
       try {
         let response = await axios.get("/api/reviews/" + this.$route.params.id);
         this.reviews = response.data;
+        console.log(this.reviews);
+
       } catch(error) {
         this.$root.data.user = null;
       }
