@@ -126,7 +126,7 @@ router.put('/:reviewID', validUser, async(req, res) => {
 // router.delete('/api/reviews/:reviewID', validUser, async(req, res) => {
 router.delete('/:reviewID', validUser, async(req, res) => {
     try {
-        let review = await Review.findOne({_id:req.params.reviewID});
+        let review = await Review.findOne({_id:req.params.reviewID}).populate('user');
         if(!review) {
             res.sendStatus(404);
             return;

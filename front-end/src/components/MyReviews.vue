@@ -23,7 +23,7 @@
                     </form>
                   </div>
                   <div class="button">
-                    <button class="pure-button pure-button-primary">Delete</button>
+                    <button class="pure-button pure-button-primary" @click="deleteReview">Delete</button>
                   </div>
                   <div class="button">
                     <button class="pure-button pure-button-primary" @click="closeEdit">Close</button>
@@ -96,6 +96,15 @@ export default {
         closeEdit() {
             this.edit = false;
             this.reviewToEdit = null;
+        },
+        async deleteReview() {
+            try {
+                await axios.delete("/api/reviews/" + this.reviewToEdit._id);
+            } catch (error) {
+                this.error = error.response.data.message;
+            }
+            this.getReviews();
+            this.closeEdit();
         }
     }
 }
