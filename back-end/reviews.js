@@ -30,6 +30,10 @@ const reviewSchema = new mongoose.Schema({
         type: mongoose.Schema.ObjectId,
         ref: 'User'
     },
+    created: {
+        type: Date,
+        default: Date.now
+    },
     review: String,
 });
 

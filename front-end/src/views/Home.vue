@@ -5,7 +5,7 @@
       <h1> Welcome to Booksy! </h1> 
     </div>
     <div class="heading2">
-      <h4> Browse below to find your favorite books. Click on a book to see its reviews and add one of your own! </h4> 
+      <h4> Browse below to find your favorite books. Click on a book cover to see its reviews and add one of your own! </h4> 
     </div>
     </div>
     <BookCollection :books="books" />
@@ -82,12 +82,9 @@ body {
 
 .heading {
   background-color: #eb7f4d;
-  /* color: #a13b0c; */
-  /* color: #3b1605; */
+  border-radius: 5px;
   padding: 1%;
   margin-bottom: 4%;
-  /* margin-left: 20%;
-  margin-right: 20%; */
 }
 
 .image img {
