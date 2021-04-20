@@ -4,9 +4,9 @@
     <div class = "login">
       <form class="pure-form">
         <div class="login-credentials">
-          <h2>Login</h2>
-          <input placeholder="username" v-model="usernameLogin">
-          <input type="password" placeholder="password" v-model="passwordLogin">
+          <h1>Login</h1>
+          <input class="form" placeholder="username" v-model="usernameLogin">
+          <input class="form" type="password" placeholder="password" v-model="passwordLogin">
         </div>
         <div class="login-credentials">
           <button type="submit" class="pure-button pure-button-primary" @click.prevent="login">Login</button>
@@ -17,16 +17,20 @@
     <div class = "register">
       <form class="pure-form">
         <div class="register-credentials">
-          <h2>Register for an account</h2>
-          <input placeholder="first name" v-model="firstName">
-          <input placeholder="last name" v-model="lastName">
+          <h1>Register for an account</h1>
         </div>
         <div class="register-credentials">
-          <input placeholder="username" v-model="username">
-          <input type="password" placeholder="password" v-model="password">
-          <div>
-            <button type="submit" class="pure-button pure-button-primary" @click.prevent="register">Register</button>
+          <div>  
+            <input class="form" placeholder="first name" v-model="firstName">
+            <input class="form" placeholder="last name" v-model="lastName">
           </div>
+          <div>  
+            <input class="form" placeholder="username" v-model="username">
+            <input class="form" type="password" placeholder="password" v-model="password">
+          </div>
+        </div>
+        <div class="register-credentials">
+          <button type="submit" class="pure-button pure-button-primary" @click.prevent="register">Register</button>
         </div>
       </form>
       <p v-if="error" class="error">{{error}}</p>
@@ -97,13 +101,15 @@ h1 {
 }
 
 .hero {
-  padding: 120px;
+  padding: 2%;
   display: flex;
   justify-content: center;
+  /* border: 4px solid black; */
 }
 
 .heroBox {
   text-align: center;
+  width: 60%;
   /* margin-top: auto;
   margin-bottom: auto; */
   /* border: 4px solid black; */
@@ -136,9 +142,29 @@ input {
 }
 
 .login-credentials, .register-credentials {
-    background-color:#cfe2fd;
-    padding-top: 5%;
-    padding-bottom: 5%;
+  background-color:#cfe2fd;
+  margin-top: 3%;
+  display: block;
+  /* margin-bottom: 5%; */
+}
+
+.form {
+  padding: 2%;
+  font-size: 1.2em;
+  margin-top: 4%;
+}
+
+.pure-form {
+  background-color:#cfe2fd;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+.pure-button {
+  padding: 1% 3% 1% 3%;
+  background-color: #062d62;
+  color: antiquewhite;
+  font-size: 1.2em;
 }
 
 
