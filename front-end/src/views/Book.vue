@@ -27,9 +27,9 @@
     </div>
     <div class="content">
       <div class="all-reviews">
-        <div class="review-header">
+        <!-- <div class="review-header">
           <h2>Reviews</h2>
-        </div>
+        </div> -->
         <div class="add-reviews" v-if="user">
           <form class="form" @submit.prevent="submitReview">
             <h4>Add your own review:</h4>
@@ -159,11 +159,15 @@ export default {
   /* background-color: antiquewhite; */
   /* border: 4px solid #a13b0c; */
     background-color: #eb7f4d;
+    padding: 15px;
     border-radius: 5px;
 
 }
 .all-reviews {
-  border: 4px solid #062d62;
+  background-color:#93b0d8;
+  border-radius: 5px;
+  padding: 15px;
+
 }
 .cover {
   width: 70%;
@@ -172,21 +176,24 @@ export default {
 
 .info1 {
   padding-bottom: 6%;
-  border: dashed 2px #a13b0c;
+  background-color: #F3B592;
+
+  border-radius: 5px;
     /* background-color: antiquewhite; */
 
   margin: 15px 15px;
   padding: 15px 0px;
 }
-.review-header {
+/* .review-header {
   padding: 15px auto;
-  border: dashed 2px #062d62;
   margin: 15px 15px;
   line-height: 1.25em;
+  background-color: #cfe2fd;
+  border-radius: 5px;
 }
 .review-header h2 {
   padding: 15px;
-}
+} */
 .info-item1 {
   text-align: center;
 }
@@ -194,7 +201,8 @@ export default {
 .info2 {
   margin: 15px 15px;
   padding: 10px 10px;
-  border: dashed 2px #a13b0c;
+  background-color: #F3B592;
+
   /* background-color: antiquewhite; */
 
 
@@ -210,25 +218,24 @@ export default {
   margin: 10px;
   padding: 5%;
   margin: 3%;
-  /* border: solid black 2px; */
-    background-color:#cfe2fd;
-  border: dashed 2px #062d62;
-
+  background-color: #cfe2fd;
+  border-radius: 5px;
 
 }
+
 .display-reviews{
   /* border: solid black 2px; */
   padding: 2%;  
   margin: 3%;
-      background-color:#cfe2fd;
-  border: dashed 2px #062d62;
-
+  background-color: #cfe2fd;
+  border-radius: 5px;
 }
 .review-loop {
   margin: 20px 5px;
   padding: 2%;
   /* border: 2px solid black; */
     background-color:#e4eefc;
+    border-radius: 5px;
 
 }
 @media only screen and (min-width: 600px) {

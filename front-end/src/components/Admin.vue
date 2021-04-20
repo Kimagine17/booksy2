@@ -11,9 +11,11 @@
           </div>
           <div class="add">
             <div class="form">
-              <input v-model="genreName" placeholder="Genre">
-              <p></p>
+              <div class="question">
+                <input v-model="genreName" placeholder="Genre">
+                <p></p>
               <button @click="uploadgenre">Upload</button>
+              </div>
             </div>
           </div>
         </div>
@@ -26,9 +28,10 @@
           </div>
           <div class="edit">
             <div class="form">
-              <p>Choose a genre:</p>
-              <multiselect label="name" v-model="findGenreItem" :options="genres"></multiselect>
-              <p></p>
+              <div class="question">
+                <p>Choose a genre:</p>
+                <multiselect label="name" v-model="findGenreItem" :options="genres"></multiselect>
+              </div>
             </div>
             <div class="upload" v-if="findGenreItem">
               <input v-model="findGenreItem.name">
@@ -52,18 +55,26 @@
           </div>
           <div class="add">
             <div class="form">
-              <p>Choose a genre:</p>
-              <multiselect label="name" v-model="genre" :options="genres"></multiselect>
-              <p></p>
-              <p>Book Title:</p>
-              <input v-model="bookTitle" placeholder="Title">
-              <p>Write a short description:</p>
-              <input v-model="bookDescription" placeholder="Description">
-              <p></p>
-              <p>Author:</p>
-              <input v-model="bookAuthor" placeholder="Author">
-              <input type="file" name="photo" @change="fileChanged">
-              <button @click="uploadbook(genre)">Upload Book Cover</button>
+              <div class="question">
+                <p>Choose a genre:</p>
+                <multiselect label="name" v-model="genre" :options="genres"></multiselect>
+              </div>
+              <div class="question">
+                <p>Book Title:</p>
+                <input v-model="bookTitle" placeholder="Title">
+              </div>
+              <div class="question">
+                <p>Write a short description:</p>
+                <input v-model="bookDescription" placeholder="Description">
+              </div>
+              <div class="question">
+                <p>Author:</p>
+                <input v-model="bookAuthor" placeholder="Author">
+              </div>
+              <div class="question">
+                <input type="file" name="photo" @change="fileChanged">
+                <button @click="uploadbook(genre)">Upload Book Cover</button>
+              </div>
             </div>
             <div class="upload" v-if="addBook">
               <h2>{{addBook.bookTitle}}</h2>
@@ -79,9 +90,10 @@
           </div>
           <div class="edit">
             <div class="form">
+              <div class="question">
               <p>Find book to edit:</p>
               <multiselect label="name" v-model="findBookItem" :options="books"></multiselect>
-              <p></p>
+              </div>
             </div>
             <div class="upload" v-if="findBookItem">
               <input v-model="findBookItem.name">
@@ -259,22 +271,23 @@ export default {
 }
 .set {
   background-color:#cfe2fd;
-  /* border: 2px solid #062d62; */
   padding: 15px;
-  margin: 5%;
   border-radius: 5px;
 }
-
+.question {
+  border: 2px solid red;
+  padding: 5px;
+  margin: 8px;
+}
 .inputField {
     border: 2px solid #eb7f4d;
     background-color: #faebd7;
-    padding: 3%;
-    margin: 3%;
+    padding: 10px;
+    margin: 20px 15px;
     border-radius: 5px;
-
 }
 
-.heading {
+/* .heading {
     margin-bottom: 20px;
     margin-top: 0px;
 }
@@ -282,11 +295,15 @@ export default {
 .heading h2 {
     margin-top: 0px;
     margin-left: 0px;
-}
+} */
 p {
-  padding: 2% 0%;
+  line-height: 1.5em;
+  /* margin: 10px 0px; */
 }
-
+button {
+  margin: 5px;
+  padding: 5px;
+}
 /* Form */
 input,
 textarea,
@@ -348,3 +365,4 @@ button {
     }
 }
 </style>
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
