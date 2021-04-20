@@ -10,10 +10,26 @@
                 </div>
             </div>
         </div>
-        <div class="review-container">
-            <div class="has-reviews" v-if="hasReviews">
+        <div class="no-reviews" v-if="reviews.length===0">
+            <h2>When you submit your first review, it will pop up here. You can edit, delete, and read over
+                    your reviews again and again.</h2>
+        </div>
+        <div class="review-container" v-else>
                 <h1> My Reviews: </h1>
-                <div class = "my-reviews">
+                <div class="openEditForms" v-if="edit">
+                        <div class="button">
+                            <textarea class="form" @submit.prevent="editReview" v-model="reviewToEdit.review" placeholder="edit review" />
+                            <!-- <input placeholder="edit review" v-model="reviewToEdit.review"> -->
+                            <!-- </textarea> -->
+                        </div>
+                        <div class="button">
+                            <button class="pure-button pure-button-primary" @click="editReview">Submit</button>
+                            <button class="pure-button pure-button-primary" @click="deleteReview">Delete</button>
+                            <button class="pure-button pure-button-primary" @click="closeEdit">Close</button>
+
+                        </div>
+                </div>
+                <div class = "my-reviews" v-else>
                     <div class = "reviews-box">
                     <div class = "review-loop" v-for="review in reviews" v-bind:key="review._id">
                         <p><strong>Review: </strong> {{review.review}}</p>
@@ -21,27 +37,10 @@
                         <button class="edit" @click="openEdit(review)">Edit Review</button>
                     </div>
                     </div>
-                    <div class="openEditForms" v-if="edit">
-                        <div class="button">
-                            <form class="form" @submit.prevent="editReview">
-                            <input placeholder="edit review" v-model="reviewToEdit.review">
-                            <button class="pure-button pure-button-primary">Submit</button>
-                            </form>
-                        </div>
-                        <div class="button">
-                            <button class="pure-button pure-button-primary" @click="deleteReview">Delete</button>
-                        </div>
-                        <div class="button">
-                            <button class="pure-button pure-button-primary" @click="closeEdit">Close</button>
-                        </div>
-                    </div>
                 </div>
-            </div> <div class="no-reviews" v-else>
-                <h2>When you submit your first review, it will pop up here. You can edit, delete, and read over
-                    your reviews again and again.</h2>
             </div> 
+
         </div>
-    </div>
 </template>
 
 <script>
@@ -55,7 +54,6 @@ export default {
             reviews: [],
             edit: false,
             reviewToEdit: null,
-            hasReviews: false,
         }
     },
     async created() {
@@ -118,11 +116,6 @@ export default {
             }
             this.getReviews();
             this.closeEdit();
-        },
-        async yesReviews() {
-            if (this.$root.$data.reviews.length > 0) {
-                this.hasReviews = true;
-            }
         },
     }
 }
@@ -193,6 +186,10 @@ export default {
     margin: auto auto auto 0%;
 }
 
+.button {
+    display: flex;
+}
+
 .edit, .pure-button {
     padding: 1% 2% 1% 2%;
     margin: 2%;
@@ -202,6 +199,16 @@ export default {
 
 .no-reviews {
     margin: 10% 20% 10% 20%;
+}
+
+.openEditForms {
+    width: 90%;
+    padding: 25px;
+    background-color:#cfe2fd;
+    margin: 30px auto;
+    justify-content: center;
+    text-align: center;
+    border-radius: 5px;
 }
 
 </style>
