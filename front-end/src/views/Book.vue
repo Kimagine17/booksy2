@@ -95,6 +95,8 @@ export default {
       try {
         let response = await axios.get("/api/reviews/" + this.$route.params.id);
         this.reviews = response.data;
+                console.log(this.reviews);
+
       } catch(error) {
         this.$root.data.user = null;
       }
