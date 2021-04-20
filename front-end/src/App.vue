@@ -80,7 +80,6 @@ body {
 .content
 {
   height: 100%;
-  /* border: 5px dashed blue; */
 }
 
 .router-link-exact-active, .header-item a {
