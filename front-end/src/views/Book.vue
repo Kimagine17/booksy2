@@ -37,12 +37,18 @@
               <button class="pure-button pure-button-primary">Submit</button>
           </form>
         </div> 
+        <div class="add-reviews" v-else>
+          <p>Login to add your own review</p>
+        </div>
         <div class="display-reviews"> 
           <h3> Reviews: </h3>
           <div class = "review-loop" v-for="review in reviews" v-bind:key="review._id">
             <p>{{review.review}}</p>
-            <p>—{{review.user.username}}, {{formatDate(review.created)}}</p>
+            <p> &nbsp;—{{review.user.username}}, {{formatDate(review.created)}}</p>
           </div>
+          <div class="no-reviews" v-if="reviews.length===0">
+            <p>No reviews? Be the first!</p>
+            </div>
         </div>
       </div>
     </div>
@@ -124,6 +130,8 @@ export default {
 .book-vue {
   margin: 20px;
   padding: 2%;
+  line-height: 1.5em;
+
 }
 .main-container {
     height: 100%;
@@ -144,11 +152,10 @@ export default {
   padding: 2%;
 }
 .book {
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
   border: 4px solid #a13b0c;
 }
 .all-reviews {
-  background-color:#cfe2fd;
   border: 4px solid #062d62;
 }
 .cover {
@@ -159,6 +166,8 @@ export default {
 .info1 {
   padding-bottom: 6%;
   border: dashed 2px #a13b0c;
+    background-color: antiquewhite;
+
   margin: 15px 15px;
   padding: 15px 0px;
 }
@@ -176,9 +185,12 @@ export default {
 }
 
 .info2 {
-  padding-top: 6%;
   margin: 15px 15px;
-  padding-bottom: 6%;
+  padding: 10px 10px;
+  border: dashed 2px #a13b0c;
+    background-color: antiquewhite;
+
+
 
 }
 .info-item {
@@ -190,14 +202,27 @@ export default {
 .add-reviews {
   margin: 10px;
   padding: 5%;
+  margin: 3%;
+  /* border: solid black 2px; */
+    background-color:#cfe2fd;
+  border: dashed 2px #062d62;
+
+
 }
 .display-reviews{
-  border: solid black 2px;
-  padding: 5%;  
+  /* border: solid black 2px; */
+  padding: 2%;  
+  margin: 3%;
+      background-color:#cfe2fd;
+  border: dashed 2px #062d62;
+
 }
 .review-loop {
-  margin: 3%;
+  margin: 20px 5px;
   padding: 2%;
+  /* border: 2px solid black; */
+    background-color:#e4eefc;
+
 }
 @media only screen and (min-width: 600px) {
   .main-container {
