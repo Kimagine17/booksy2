@@ -13,10 +13,12 @@
         <div class="review-container">
             <h1> My Reviews: </h1>
             <div class = "my-reviews">
+                <div class = "reviews-box">
                 <div class = "review-loop" v-for="review in reviews" v-bind:key="review._id">
-                    <p>Review: {{review.review}}</p>
-                    <p>Book: {{review.book.name}}</p>
+                    <p><strong>Review: </strong> {{review.review}}</p>
+                    <p><strong>Book: </strong>{{review.book.name}}</p>
                     <button class="edit" @click="openEdit(review)">Edit Review</button>
+                </div>
                 </div>
                 <div class="openEditForms" v-if="edit">
                     <div class="button">
@@ -96,6 +98,7 @@ export default {
                 this.error = error.response.data.message;
             }
             this.review = "";
+            this.closeEdit();
         },
         closeEdit() {
             this.edit = false;
@@ -158,12 +161,30 @@ export default {
   background-color:#cfe2fd;
   /* border: 2px solid #062d62; */
   padding: 15px;
+  border-radius: 5px;
   margin: 5%;
   display: flex;
 }
 
 .review-loop {
     display: block;
+    background-color:#e4eefc;
+    padding: 2%;
+    margin: 2%;
+    border-radius: 5px;
+    line-height: 1.5em;
+}
+
+.reviews-box {
+    width: 60%;
+    margin: auto auto auto 0%;
+}
+
+.edit, .pure-button {
+    padding: 1% 2% 1% 2%;
+    margin: 2%;
+    background-color: #062d62;
+    color: antiquewhite;
 }
 
 </style>

@@ -260,12 +260,16 @@ export default {
   /* border: 2px solid #062d62; */
   padding: 15px;
   margin: 5%;
+  border-radius: 5px;
 }
+
 .inputField {
     border: 2px solid #eb7f4d;
     background-color: #faebd7;
     padding: 3%;
     margin: 3%;
+    border-radius: 5px;
+
 }
 
 .heading {
