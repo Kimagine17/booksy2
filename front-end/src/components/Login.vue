@@ -154,6 +154,7 @@ input {
   background-color:#cfe2fd;
   padding-top: 3%;
   padding-bottom: 3%;
+  border-radius: 5px;
 }
 
 .pure-button {
