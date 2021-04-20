@@ -1,6 +1,6 @@
 <template>
 <div class = "book-vue">
-  <h1> Reviews Page</h1>
+  <h1> More About <em>{{book.name}}</em></h1>
   <div class = "main-container">
     <div class="content1">
       <div class="book" v-if="book">
@@ -129,16 +129,18 @@ export default {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 } 
+.body {
+    background-color: #faebd7;
+}
 .book-vue {
-  margin: 20px;
-  padding: 2%;
+  padding: 30px;
   line-height: 1.5em;
+  background-color: #faebd7;
 
 }
 .main-container {
     height: 100%;
     width: 100%;
-    border: 1px solid white;
     align-content: center;
 }
 .content1 {
@@ -155,7 +157,10 @@ export default {
 }
 .book {
   /* background-color: antiquewhite; */
-  border: 4px solid #a13b0c;
+  /* border: 4px solid #a13b0c; */
+    background-color: #eb7f4d;
+    border-radius: 5px;
+
 }
 .all-reviews {
   border: 4px solid #062d62;
@@ -168,7 +173,7 @@ export default {
 .info1 {
   padding-bottom: 6%;
   border: dashed 2px #a13b0c;
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
 
   margin: 15px 15px;
   padding: 15px 0px;
@@ -190,7 +195,7 @@ export default {
   margin: 15px 15px;
   padding: 10px 10px;
   border: dashed 2px #a13b0c;
-    background-color: antiquewhite;
+  /* background-color: antiquewhite; */
 
 
 
@@ -230,7 +235,6 @@ export default {
   .main-container {
     height: 100%;
     width: 100%;
-    border: 1px solid white;
     display: flex;
     align-content: center;
   } 

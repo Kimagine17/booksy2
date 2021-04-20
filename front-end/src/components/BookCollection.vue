@@ -16,7 +16,7 @@
         </div>
         <div class="info2">
           <div class="description">
-            <h3>{{book.description}}</h3>
+            <h4>{{book.description}}</h4>
           </div>
           <div class="description">
             <p><em>genre: </em>{{book.genre.name}}</p>
@@ -48,13 +48,22 @@ export default {
 
 .info1 {
   padding: 10px;
-  border: dashed 2px #a13b0c;
+  /* border: dashed 2px #a13b0c; */
+  background-color: #F3B592;
+  border-radius: 5px;
   justify-content: center;
   text-align: center;
+  margin: 5px;
 }
 .info2 {
   padding: 10px;
-  border: dashed 2px #a13b0c;
+  margin: 5px;
+
+  /* border: dashed 2px #a13b0c; */
+    background-color: #F3B592;
+
+    border-radius: 5px;
+
   justify-content: center;
   text-align: center;
 }
@@ -71,19 +80,25 @@ export default {
   margin: 0 0 1.5em;
   display: inline-block;
   width: 100%;
-  padding: 10%;
+  padding: 10px;
   background-color: #eb7f4d;
+  border-radius: 5px;
   /* border: 4px solid #a13b0c; */
 
 }
 .image img {
   width: 100%;
+  border-radius: 5px;
 }
 
 .title, .description, .bookCover {
   margin: 1%;
   padding-top: 1%;
   padding-bottom: 1%;
+}
+.bookCover {
+  margin: auto;
+  width: 80%;
 }
 
 /* Masonry on large screens */
