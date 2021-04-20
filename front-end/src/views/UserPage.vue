@@ -40,7 +40,9 @@ export default {
 <style scoped>
 .userpage {
     color: black;
-    /* background-color: antiquewhite; */
+    height: 100%;
+    background-color:#f8f9fc;
+    /* background-color: red; */
 }
 
 </style>

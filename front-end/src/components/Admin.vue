@@ -254,6 +254,8 @@ export default {
     height:100%;
     width: 90%;
     margin: 20px auto;
+    background-color:#f8f9fc;
+
 }
 .set {
   background-color:#cfe2fd;

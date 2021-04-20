@@ -70,11 +70,15 @@ body {
   height: 100%;
   min-height: 100vh; 
   display: block;
-  padding-bottom: 70px; 
   width: 100%;
 }
+
 #app {
-  height: 100%;
+  height: 100%;                                       
+  /* POTENTIAL TROUBLEMAKER */
+  padding-bottom: 90px; 
+  min-height: 100vh; 
+  background-color:#f8f9fc;
 }
 
 .content
