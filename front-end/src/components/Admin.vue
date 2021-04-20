@@ -266,16 +266,18 @@ export default {
     height:100%;
     width: 90%;
     margin: 20px auto;
-    background-color:#f8f9fc;
-
+    /* width: 90%; */
+    /* margin: 5% auto auto auto; */
 }
 .set {
-  background-color:#cfe2fd;
   padding: 15px;
   border-radius: 5px;
+  margin: 5% auto auto auto;
+  width: 90%;
+  background-color:#cfe2fd;
+
 }
 .question {
-  border: 2px solid red;
   padding: 5px;
   margin: 8px;
 }
@@ -287,15 +289,6 @@ export default {
     border-radius: 5px;
 }
 
-/* .heading {
-    margin-bottom: 20px;
-    margin-top: 0px;
-}
-
-.heading h2 {
-    margin-top: 0px;
-    margin-left: 0px;
-} */
 p {
   line-height: 1.5em;
   /* margin: 10px 0px; */
