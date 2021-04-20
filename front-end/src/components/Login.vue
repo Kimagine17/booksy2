@@ -104,15 +104,12 @@ h1 {
   padding: 2%;
   display: flex;
   justify-content: center;
-  /* border: 4px solid black; */
+  background-color:#f8f9fc;
 }
 
 .heroBox {
   text-align: center;
   width: 60%;
-  /* margin-top: auto;
-  margin-bottom: auto; */
-  /* border: 4px solid black; */
 }
 
 .hero form {
@@ -145,7 +142,6 @@ input {
   background-color:#cfe2fd;
   margin-top: 3%;
   display: block;
-  /* margin-bottom: 5%; */
 }
 
 .form {
