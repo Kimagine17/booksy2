@@ -120,6 +120,12 @@ export default {
 <style scoped>
 .main {
     width: 100%;
+    background-color:#f8f9fc;
+
+}
+
+.app {
+    height: 100%;
 }
 
 .account-header {
