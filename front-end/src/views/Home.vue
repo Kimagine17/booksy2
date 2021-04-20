@@ -51,18 +51,10 @@ export default {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
+
 body {
   height: 100%;
   width: 100%;
-  /* border: 4px dashed red; */
-}
-
-.main-container {
-  background-color: #eb7f4d;
-}
-
-.image-gallery {
-  height: 100%;
 }
 
 .home {
@@ -70,8 +62,10 @@ body {
   padding: 3%;
   padding-left: 7%; 
   padding-right: 7%;
-  background-color: #eb7f4d;
-  color:black;
+  /* background-color: #eb7f4d; */
+  background-color: antiquewhite;
+  color: #311204;
+;
 }
 
 .heading1, .heading2 {
@@ -87,58 +81,30 @@ body {
 }
 
 .heading {
-  background-color: antiquewhite;
+  background-color: #eb7f4d;
+  /* color: #a13b0c; */
+  /* color: #3b1605; */
   padding: 1%;
   margin-bottom: 4%;
   /* margin-left: 20%;
   margin-right: 20%; */
-  border: 4px solid #a13b0c;
 }
 
-/* Masonry */
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-.image-gallery {
-  column-gap: 1.5em;
-}
-.image {
-  margin: 0 0 1.5em;
-  display: inline-block;
-  width: 100%;
-  padding: 10%;
-  background-color: antiquewhite;
-  border: 4px solid #a13b0c;
-}
 .image img {
   width: 100%;
 }
 
-.title, .description, .bookCover {
-  margin: 1%;
-  padding-top: 1%;
-  padding-bottom: 1%;
-}
-
 /* Masonry on large screens */
 @media only screen and (min-width: 1024px) {
-  .image-gallery {
-    column-count: 4;
-  }
+
 }
 /* Masonry on medium-sized screens */
 @media only screen and (max-width: 1023px) and (min-width: 768px) {
-  .image-gallery {
-    column-count: 3;
-  }
+
 }
 /* Masonry on small screens */
 @media only screen and (max-width: 767px) and (min-width: 540px) {
-  .image-gallery {
-    column-count: 2;
-  }
+
 }
 </style>
 

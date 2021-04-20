@@ -280,15 +280,6 @@ export default {
 p {
   padding: 2% 0%;
 }
-.circle {
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
-  padding: 8px;
-  background: #333;
-  color: #fff;
-  text-align: center;
-}
 
 /* Form */
 input,

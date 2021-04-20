@@ -30,54 +30,9 @@ export default {
 </script>
 
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-}
-body {
-  height: 100%;
-  width: 100%;
-  /* border: 4px dashed red; */
-}
-
-.main-container {
-  background-color: #eb7f4d;
-}
 
 .image-gallery {
   height: 100%;
-}
-
-.home {
-  height: 100%;
-  padding: 3%;
-  padding-left: 7%; 
-  padding-right: 7%;
-  background-color: #eb7f4d;
-  color:black;
-}
-
-.heading1, .heading2 {
-  text-align: center;
-  padding-left: 20%;
-  padding-right: 20%;
-  margin-bottom: 2%;
-  font-size: 1.3em; 
-}
-
-.heading1 {
-  margin-top: 2%;
-}
-
-.heading {
-  background-color: antiquewhite;
-  padding: 1%;
-  margin-bottom: 4%;
-  /* margin-left: 20%;
-  margin-right: 20%; */
-  border: 4px solid #a13b0c;
 }
 
 /* Masonry */
@@ -94,8 +49,9 @@ body {
   display: inline-block;
   width: 100%;
   padding: 10%;
-  background-color: antiquewhite;
-  border: 4px solid #a13b0c;
+  background-color: #eb7f4d;
+  /* border: 4px solid #a13b0c; */
+
 }
 .image img {
   width: 100%;

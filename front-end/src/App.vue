@@ -128,7 +128,7 @@ body {
 }
 
 .router-link-exact-active {
-  color: rgb(235, 127, 77);
+  color: #eb7f4d;
 }
 
 .footer-container {
