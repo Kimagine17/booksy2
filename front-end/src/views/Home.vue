@@ -62,10 +62,8 @@ body {
   padding: 3%;
   padding-left: 7%; 
   padding-right: 7%;
-  /* background-color: #eb7f4d; */
   background-color: antiquewhite;
   color: #311204;
-;
 }
 
 .heading1, .heading2 {

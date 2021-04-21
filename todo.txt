@@ -18,3 +18,11 @@ Add user's comments
 CSS styling (yikes)
 
 Extra: Sort by genre
+
+
+//
+Where the photos are saving:
+~/booksy2/front-end/public/images$
+
+Where they should be:
+:/var/www/booksy2.kimagineland.com/images$

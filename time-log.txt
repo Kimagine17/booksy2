@@ -1,3 +1,8 @@
 4/15/2021: 1 hr
 4/16/2021: 2 hours
 4/16/2021: 6 hours (4 hours backend total)
+4/17/2021: 4 hours (finished functionality, css)
+4/19/2021: 5 hours (css, uploading)
+
+TOTAL:
+18 hours

@@ -4,17 +4,8 @@ const mongoose = require('mongoose');
 
 const router = express.Router();
 
-// Configure multer so that it will upload to '../front-end/public/images'
-const multer = require('multer')
-const upload = multer({
-  dest: '../front-end/public/images/',
-  limits: {
-    fileSize: 10000000
-  }
-});
-
 const users = require("./users.js");
-const User = users.model;
+// const User = users.model;
 const validUser = users.valid;
 
 const books = require("./books.js");
@@ -80,8 +71,6 @@ router.get('/:bookID', async(req, res) => {
             return;
         }
         let reviews = await Review.find({book:book}).populate('user');
-        // console.log(reviews);
-        // console.log(reviews.reverse());
         res.send(reviews.reverse());
     } catch (error) {
         console.log(error);
@@ -127,7 +116,6 @@ router.put('/:reviewID', validUser, async(req, res) => {
 });
 
 //Delete a review
-// router.delete('/api/reviews/:reviewID', validUser, async(req, res) => {
 router.delete('/:reviewID', validUser, async(req, res) => {
     try {
         let review = await Review.findOne({_id:req.params.reviewID}).populate('user');

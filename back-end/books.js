@@ -15,9 +15,9 @@ const upload = multer({
 
 const users = require("./users.js");
 const genres = require("./genres.js");
-const User = users.model;
+// const User = users.model;
 const validAdmin = users.validAdmin;
-const validUser = users.valid;
+// const validUser = users.valid;
 const Genre = genres.model;
 
 //BOOK: Schema, Model, POST, GET for genre, UPDATE
@@ -125,7 +125,6 @@ router.put('/:bookID', validAdmin, async(req, res) => {
         book.name = req.body.name;
         book.description = req.body.description;
         book.author = req.body.author;
-        //photoPath = req.body.photoPath;
         await book.save();
         res.send(book);
     } catch (error) {

@@ -1,10 +1,10 @@
 <template>
     <div class="userpage">
-        <MyReviews v-if="user" />
-        <Login v-else />
-        <div class="admin" v-if="user">
-            <Admin v-if="user.role === 'admin'" />
-        </div>
+      <MyReviews v-if="user" />
+      <Login v-else />
+      <div class="admin" v-if="user">
+          <Admin v-if="user.role === 'admin'" />
+      </div>
     </div>
 </template>
 
@@ -42,7 +42,6 @@ export default {
     color: black;
     height: 100%;
     background-color:#f8f9fc;
-    /* background-color: red; */
 }
 
 </style>
