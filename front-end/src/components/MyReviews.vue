@@ -17,29 +17,25 @@
         <div class="review-container" v-else>
                 <h1> My Reviews: </h1>
                 <div class="openEditForms" v-if="edit">
-                        <div class="button">
-                            <textarea class="form" @submit.prevent="editReview" v-model="reviewToEdit.review" placeholder="edit review" />
-                            <!-- <input placeholder="edit review" v-model="reviewToEdit.review"> -->
-                            <!-- </textarea> -->
-                        </div>
-                        <div class="button">
-                            <button class="pure-button pure-button-primary" @click="editReview">Submit</button>
-                            <button class="pure-button pure-button-primary" @click="deleteReview">Delete</button>
-                            <button class="pure-button pure-button-primary" @click="closeEdit">Close</button>
-
-                        </div>
+                    <div class="button">
+                        <textarea class="form" @submit.prevent="editReview" v-model="reviewToEdit.review" placeholder="edit review" />
+                    </div>
+                    <div class="button">
+                        <button class="pure-button pure-button-primary" @click="editReview">Submit</button>
+                        <button class="pure-button pure-button-primary" @click="deleteReview">Delete</button>
+                        <button class="pure-button pure-button-primary" @click="closeEdit">Close</button>
+                    </div>
                 </div>
                 <div class = "my-reviews" v-else>
                     <div class = "reviews-box">
                     <div class = "review-loop" v-for="review in reviews" v-bind:key="review._id">
                         <p><strong>Review: </strong> {{review.review}}</p>
                         <p><strong>Book: </strong>{{review.book.name}}</p>
-                        <button class="edit" @click="openEdit(review)">Edit Review</button>
+                        <button class="edit" @click="openEdit(review)">Edit / Delete</button>
                     </div>
                     </div>
                 </div>
             </div> 
-
         </div>
 </template>
 
@@ -165,7 +161,6 @@ export default {
 
 .my-reviews {
   background-color:#cfe2fd;
-  /* border: 2px solid #062d62; */
   padding: 15px;
   border-radius: 5px;
   margin: 5%;

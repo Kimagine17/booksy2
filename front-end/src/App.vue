@@ -140,9 +140,7 @@ body {
   bottom: 0;
   width: 100%;
   display: flex;
-  padding-top: 10px;
-  padding-bottom: 10px; 
-  left: 0;
+  padding: 10px 20px;
   text-align: center;
   justify-content: center; 
 }
@@ -202,5 +200,4 @@ body {
       display: flex;
     }
 }
-
 </style>

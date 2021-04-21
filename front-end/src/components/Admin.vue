@@ -125,16 +125,16 @@ export default {
     return {
       genre: null,
       genres: [],
-      books: [],
       genreName: "",
       findGenre: "",
       findGenreItem: null,
+      addGenre: null,
+      books: [],
       bookTitle: "",
       findBook: "",
       findBookItem: null,
       bookDescription: "",
       file: null,
-      addGenre: null,
       addBook: null,
       findName: "",
       findItem: null,
@@ -162,6 +162,7 @@ export default {
       } catch (error) {
         console.log(error);
       }
+      this.getGenres();
     },
     async getGenres() {
       try {
@@ -174,9 +175,9 @@ export default {
     },
     async getBooks() {
       try {
-          let response = await axios.get("/api/books");
-          this.books = response.data;
-          return true;
+        let response = await axios.get("/api/books");
+        this.books = response.data;
+        return true;
       } catch (error) {
           console.log(error);
       }
@@ -202,10 +203,10 @@ export default {
           name: this.findGenreItem.name,
         });
         this.findGenreItem = null;
-        this.getItems();
+        this.getGenres();
         return true;
       } catch (error) {
-        //console.log(error);
+        console.log(error);
       }
     },
     async deleteBook(item) {
@@ -214,6 +215,7 @@ export default {
         this.findBook = "";
         this.findBookItem = null;
         this.getGenres();
+        this.getBooks();
         return true;
       } catch (error) {
         console.log(error);
@@ -227,20 +229,16 @@ export default {
           author: this.findBookItem.author,
         });
         this.findBookItem = null;
-        this.getItems();
+        this.getBooks();
         return true;
       } catch (error) {
-        //console.log(error);
+        console.log(error);
       }
     },
     fileChanged(event) {
-      console.log("we are here");
       this.file = event.target.files[0]
-      console.log("we are leaving");
     },
     async uploadbook(genre) {
-      console.log("in uploadbook");
-      console.log(genre);
       try {
         const formData = new FormData();
         formData.append('photo', this.file, this.file.name, this.file.description)
@@ -253,8 +251,9 @@ export default {
           author: this.bookAuthor,
         });
         this.addBook = r2.data;
+        this.getBooks();
       } catch (error) {
-        //console.log("Problem");
+        console.log(error);
       }
     },
   }

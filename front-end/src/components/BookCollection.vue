@@ -12,7 +12,6 @@
         </div>
         <div class="bookCover">
           <router-link :to="{ name: 'Book', params: { id: book._id }}"><img :src="book.photoPath" /></router-link>
-          <!-- <img :src="book.photoPath" /> -->
         </div>
         <div class="info2">
           <div class="description">
@@ -21,9 +20,6 @@
           <div class="description">
             <p><em>genre: </em>{{book.genre.name}}</p>
           </div>
-          <!-- <div class="review">
-            <p><em>Most recent review:</em></p>
-          </div> -->
         </div>
       </div>
     </section>
@@ -48,7 +44,6 @@ export default {
 
 .info1 {
   padding: 10px;
-  /* border: dashed 2px #a13b0c; */
   background-color: #F3B592;
   border-radius: 5px;
   justify-content: center;
@@ -58,12 +53,8 @@ export default {
 .info2 {
   padding: 10px;
   margin: 5px;
-
-  /* border: dashed 2px #a13b0c; */
-    background-color: #F3B592;
-
-    border-radius: 5px;
-
+  background-color: #F3B592;
+  border-radius: 5px;
   justify-content: center;
   text-align: center;
 }
@@ -83,8 +74,6 @@ export default {
   padding: 10px;
   background-color: #eb7f4d;
   border-radius: 5px;
-  /* border: 4px solid #a13b0c; */
-
 }
 .image img {
   width: 100%;
