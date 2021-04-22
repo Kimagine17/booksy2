@@ -14,7 +14,7 @@
               <div class="question">
                 <input v-model="genreName" placeholder="Genre">
                 <p></p>
-              <button @click="uploadgenre">Upload</button>
+              <button @click="uploadgenre">Upload Genre</button>
               </div>
             </div>
           </div>
@@ -73,7 +73,7 @@
               </div>
               <div class="question">
                 <input type="file" name="photo" @change="fileChanged">
-                <button @click="uploadbook(genre)">Upload Book Cover</button>
+                <button @click="uploadbook(genre)">Upload Book</button>
               </div>
             </div>
             <div class="upload" v-if="addBook">
@@ -252,6 +252,11 @@ export default {
         });
         this.addBook = r2.data;
         this.getBooks();
+        this.bookTitle = "";
+        this.genre = "";
+        this.bookDescription = "";
+        this.photoPath = "";
+        this.bookAuthor = "";
       } catch (error) {
         console.log(error);
       }
