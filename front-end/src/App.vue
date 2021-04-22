@@ -46,8 +46,6 @@
 </template>
 
 
-
-
 <style>
 * {
   margin: 0;
@@ -76,7 +74,7 @@ body {
 #app {
   height: 100%;                                       
   /* POTENTIAL TROUBLEMAKER */
-  padding-bottom: 90px; 
+  padding-bottom: 200px; 
   min-height: 100vh; 
   background-color:#f8f9fc;
 }
@@ -84,6 +82,7 @@ body {
 .content
 {
   height: 100%;
+  /* min-height: 100vh;  */
 }
 
 .router-link-exact-active, .header-item a {
@@ -146,7 +145,7 @@ body {
 }
 .footer {
     width: 100%;
-    height:70px;
+    height:120px;
     justify-content: center; 
 }
 
@@ -198,6 +197,11 @@ body {
 
     .footer {
       display: flex;
+      height:70px;
+    }
+
+    #app {
+      padding-bottom: 100px;
     }
 }
 </style>
