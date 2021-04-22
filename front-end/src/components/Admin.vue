@@ -252,6 +252,11 @@ export default {
         });
         this.addBook = r2.data;
         this.getBooks();
+        this.bookTitle = "";
+        this.genre = "";
+        this.bookDescription = "";
+        this.photoPath = "";
+        this.bookAuthor = "";
       } catch (error) {
         console.log(error);
       }
